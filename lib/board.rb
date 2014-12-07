@@ -1,5 +1,7 @@
 class Board
 
+	attr_reader :grid
+
 	def initialize
 		@grid = {}
 		(1..9).each{|num| @grid[num] = Cell.new}

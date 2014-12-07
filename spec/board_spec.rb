@@ -7,7 +7,7 @@ describe Board do
 
 
 	it 'should contains nine cells' do
-		expect(board.length).to eq(9)
+		expect(board.grid.length).to eq(9)
 	end
 
 	it 'can access every cell' do
