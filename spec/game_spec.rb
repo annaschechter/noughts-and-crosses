@@ -29,7 +29,7 @@ describe Game do
 	it 'knows when it is ready to start' do
 		expect(game.ready?).to_not be true
 		get_game_ready(game)
-		expect(game.ready).to be true
+		expect(game.ready?).to be true
 	end
 
 	it 'should have a board' do
@@ -39,13 +39,13 @@ describe Game do
 	it 'allows players to have a turn for player1' do
 		get_game_ready(game)
 		game.take_a_turn(player1, 1)
-		expect(game.board.grid[1].name).to eq('cross')
+		expect(game.board.grid[1].content.name).to eq('cross')
 	end
 
 	it 'allows players to have a turn for player2' do
     get_game_ready(game)
 		game.take_a_turn(player2, 1)
-		expect(game.board.grid[1].name).to eq('nought')
+		expect(game.board.grid[1].content.name).to eq('nought')
 	end
 
 end

@@ -2,7 +2,7 @@ require './lib/player'
 
 describe Player do
 
-	let(:player) {Pkayer.new}
+	let(:player) {Player.new}
 
 	it 'is initialized as not a winner' do
 		expect(player.winner?).to be false

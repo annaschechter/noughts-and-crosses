@@ -11,12 +11,12 @@ describe Board do
 	end
 
 	it 'can access every cell' do
-		expect(board.find_cell(2).empty?).to be true
+		expect(board.find_cell(2)).to eq(nil)
 	end
 
 	it 'can add choiced to a specific cell' do
 		board.add_choice(2, cross)
-		expect(board.find_cell(2).empty?).to be false
+		expect(board.find_cell(2)).to eq(cross)
 	end
 
 end
