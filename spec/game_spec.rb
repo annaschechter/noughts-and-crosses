@@ -43,9 +43,23 @@ describe Game do
 	end
 
 	it 'allows players to have a turn for player2' do
-    get_game_ready(game)
+    	get_game_ready(game)
 		game.take_a_turn(player2, 1)
 		expect(game.board.grid[1].content.name).to eq('nought')
 	end
+
+	# it 'knows if it has no winners' do
+	# 	expect(game.winner?).to be nil
+	# end
+
+
+	# it 'knows when someone won' do
+	# 	game.take_a_turn(player1, 1)
+	# 	game.take_a_turn(player1, 2)
+	# 	game.take_a_turn(player1, 3)
+	# 	expect(game.winner?).to be true
+	# end
+
+
 
 end
