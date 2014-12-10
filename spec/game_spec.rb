@@ -52,12 +52,19 @@ describe Game do
 		expect(game.winner?).to be false
 	end
 
-
-	it 'knows when someone won' do
+	it 'knows when someone won (horisontal match)' do
 		game.add_player(player1)
 		game.take_a_turn(player1, 1)
 		game.take_a_turn(player1, 2)
 		game.take_a_turn(player1, 3)
+		expect(game.winner?).to be true
+	end
+
+	it 'knows when someone won (vertical match)' do
+		game.add_player(player1)
+		game.take_a_turn(player1, 1)
+		game.take_a_turn(player1, 4)
+		game.take_a_turn(player1, 7)
 		expect(game.winner?).to be true
 	end
 

@@ -88,6 +88,4 @@ class Board
 		find_cell(5 + (5 - num))
 	end
 
-
-
 end
