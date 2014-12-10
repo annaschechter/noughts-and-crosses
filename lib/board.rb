@@ -77,6 +77,7 @@ class Board
 	end
 
 	def _diagonal(num)
+		return false if _center == nil || _next_next_diagonal(num) == nil
 		find_cell(num).name == _center.name && find_cell(num).name == _next_next_diagonal(num).name
 	end
 

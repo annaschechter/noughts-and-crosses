@@ -68,6 +68,14 @@ describe Game do
 		expect(game.winner?).to be true
 	end
 
+	it 'knows when someone won (diagonal match)' do
+		game.add_player(player1)
+		game.take_a_turn(player1, 1)
+		game.take_a_turn(player1, 5)
+		game.take_a_turn(player1, 9)
+		expect(game.winner?).to be true
+	end
+
 
 
 end
