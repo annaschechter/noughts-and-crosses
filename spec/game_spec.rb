@@ -48,17 +48,18 @@ describe Game do
 		expect(game.board.grid[1].content.name).to eq('nought')
 	end
 
-	# it 'knows if it has no winners' do
-	# 	expect(game.winner?).to be nil
-	# end
+	it 'knows if it has no winners' do
+		expect(game.winner?).to be false
+	end
 
 
-	# it 'knows when someone won' do
-	# 	game.take_a_turn(player1, 1)
-	# 	game.take_a_turn(player1, 2)
-	# 	game.take_a_turn(player1, 3)
-	# 	expect(game.winner?).to be true
-	# end
+	it 'knows when someone won' do
+		game.add_player(player1)
+		game.take_a_turn(player1, 1)
+		game.take_a_turn(player1, 2)
+		game.take_a_turn(player1, 3)
+		expect(game.winner?).to be true
+	end
 
 
 

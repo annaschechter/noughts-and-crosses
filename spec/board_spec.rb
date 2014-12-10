@@ -42,7 +42,7 @@ describe Board do
 	end
 
 	it 'knows if there is no diagonal match' do
-		expect(board.diagonal_match?).to be nil
+		expect(board.diagonal_match?).to be false
 	end
 
 	it 'knows if there is a diagonal match' do

@@ -18,39 +18,41 @@ class Board
 	def vertical_match?
 		num = 1
 		while num <= 3 do
-			return true if _column_match(num) && _cell_non_empty(num)
+			return true if(_cell_non_empty(num) && _column_match(num))
 			num += 1
 		end
 		return false
 	end
 
 	def _column_match(num)
-	  find_cell(num) == _next_vertical(num) && find_cell(num) == _next_next_vertical(num)
+		return false if _next_vertical(num) == nil || _next_next_vertical(num) == nil
+	  find_cell(num).name == _next_vertical(num).name && find_cell(num).name == _next_next_vertical(num).name
 	end
 
 	def _cell_non_empty(num)
-		self.find_cell(num) != nil
+		find_cell(num) != nil
 	end
 
 	def _next_vertical(num)
-		self.find_cell(num + 3)
+		find_cell(num + 3)
 	end
 
 	def _next_next_vertical(num)
-		self.find_cell(num + 6)
+		find_cell(num + 6)
 	end
 
 	def horisontal_match?
 		num = 1
 		while num <= 7 do
-			return true if _row_match(num) && _cell_non_empty(num)
+			return true if(_cell_non_empty(num) && _row_match(num))
 			num += 3
 		end
 		return false
 	end
 
 	def _row_match(num)
-	  find_cell(num) == _next_horisontal(num) && find_cell(num) == _next_next_horisontal(num)
+		return false if _next_horisontal(num) == nil || _next_next_horisontal(num) == nil
+	  find_cell(num).name == _next_horisontal(num).name && find_cell(num).name == _next_next_horisontal(num).name
 	end
 
 	def _next_horisontal(num)
@@ -62,19 +64,20 @@ class Board
 	end
 
 	def diagonal_match?
-		_diagonal_1_to_9 || _diagonal_3_to_7
+		return true if(_diagonal_1_to_9 || _diagonal_3_to_7)
+		return false
 	end 
 
 	def _diagonal_1_to_9
-		return true if _cell_non_empty(1) && _diagonal(1)
+		_cell_non_empty(1) && _diagonal(1)
 	end
 
 	def _diagonal_3_to_7
-		return true if _cell_non_empty(3) && _diagonal(3)
+		_cell_non_empty(3) && _diagonal(3)
 	end
 
 	def _diagonal(num)
-		find_cell(num) == _center && find_cell(num) == _next_next_diagonal(num)
+		find_cell(num).name == _center.name && find_cell(num).name == _next_next_diagonal(num).name
 	end
 
 	def _center

@@ -28,8 +28,8 @@ class Game
 		end
 	end	
 
-	# def winner?
-	# 	return true if(@board.vertical_match? != nil || @board.horisontal_match?!= nil || @board.diagonal_match? != nil)
-	# end
+	def winner?
+		@board.vertical_match? || @board.horisontal_match? || @board.diagonal_match?
+	end
 
 end
