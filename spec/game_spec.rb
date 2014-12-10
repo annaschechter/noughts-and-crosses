@@ -11,6 +11,20 @@ describe Game do
 		game.add_player(player2)
 	end
 
+	def make_a_draw(game)
+		game.add_player(player1)
+		game.add_player(player2)
+		game.take_a_turn(player1, 1)
+		game.take_a_turn(player2, 4)
+		game.take_a_turn(player1, 7)
+		game.take_a_turn(player2, 8)
+		game.take_a_turn(player1, 2)
+		game.take_a_turn(player2, 5)
+		game.take_a_turn(player1, 9)
+		game.take_a_turn(player2, 3)
+		game.take_a_turn(player1, 6)
+	end
+
 	it 'is initialized without players' do
 		expect(game.player1).to eq(nil)
 		expect(game.player2).to eq(nil)
@@ -75,6 +89,17 @@ describe Game do
 		game.take_a_turn(player1, 9)
 		expect(game.winner?).to be true
 	end
+
+	it 'knows when it is a draw' do
+		make_a_draw(game)
+		expect(game.draw?).to eq true
+	end
+
+	it 'knows there are no winners when its a draw' do
+		make_a_draw(game)
+		expect(game.winner?).to eq false
+	end
+
 
 
 

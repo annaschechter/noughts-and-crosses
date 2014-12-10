@@ -32,4 +32,13 @@ class Game
 		@board.vertical_match? || @board.horisontal_match? || @board.diagonal_match?
 	end
 
+	def draw?
+		return false if winner?
+		i = 1
+		while i <= 9 do 
+			return false if @board.find_cell(i) == nil
+		 	i += 1
+		end
+		return true
+	end
 end
