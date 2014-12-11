@@ -9,8 +9,12 @@ class Noughts_and_Crosses < Sinatra::Base
     erb :index
   end
 
-  get '/play' do
-    erb :play
+  get '/play_computer' do
+    erb :play_computer
+  end
+
+  get '/play_players' do
+    "Waiting for oponents to join the game!!!"
   end
 
   # start the server if ruby file executed directly
