@@ -6,4 +6,4 @@ Feature: Playing against computer
   Scenario: making first choice
     Given I am on the play_computer page
     When I enter "1" in "Make your choice"
-    Then I see "x" on the board
+    Then I see "cross" on the board
