@@ -1,17 +1,24 @@
 require 'sinatra/base'
 require 'json'
+require './runner'
 
 class Noughts_and_Crosses < Sinatra::Base
 
   # set :views, Proc.new { File.join(root, "views") }
   set :public_folder, Proc.new{ File.join(root, 'public')}
   enable :sessions
+  game = Game.new
 
   get '/' do
     erb :index
   end
 
   get '/play_computer' do
+    user = Player.new
+    game.add_player(user)
+    computer = Player.new
+    game.add_player(computer)
+    @board = game.board
     erb :play_computer
   end
 
