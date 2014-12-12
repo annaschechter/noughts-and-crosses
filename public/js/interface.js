@@ -10,6 +10,10 @@ $(document).ready(function() {
 
 
   $('#submit').on('click', function() {
-    console.log("hello");
+    var choice = $('#choice').val();
+    $.post('/result', {choice: choice}).done(function() {
+      console.log("done")
+      location.reload() 
+     });
   });
 })
