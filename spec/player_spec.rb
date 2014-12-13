@@ -9,7 +9,7 @@ describe Player do
 	end
 
 	it 'can win' do
-		player.win
+		player.win!
 		expect(player.winner?).to be true
 	end
 	

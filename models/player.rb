@@ -8,7 +8,7 @@ class Player
 		return @winner
 	end
 
-	def win
+	def win!
 		@winner = true
 	end
 
