@@ -1,4 +1,4 @@
-require './lib/game'
+require './models/game'
 
 describe Game do 
 

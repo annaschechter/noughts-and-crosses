@@ -11,9 +11,11 @@ $(document).ready(function() {
 
   $('#submit').on('click', function() {
     var choice = $('#choice').val();
-    $.post('/result', {choice: choice}).done(function() {
+    $.post('/computer/result', {choice: choice}).done(function() {
       console.log("done")
-      location.reload() 
+      $.getJSON('/computer/result/'+ choice, function(data) {
+        $('#1').text(data);
+      }) 
      });
   });
 })

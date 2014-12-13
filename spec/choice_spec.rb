@@ -1,4 +1,4 @@
-require './lib/choice'
+require './models/choice'
 
 describe Choice do
 

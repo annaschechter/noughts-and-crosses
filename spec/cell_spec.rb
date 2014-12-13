@@ -1,4 +1,4 @@
-require './lib/cell'
+require './models/cell'
 
 describe Cell do
 

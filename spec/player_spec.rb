@@ -1,4 +1,4 @@
-require './lib/player'
+require './models/player'
 
 describe Player do
 

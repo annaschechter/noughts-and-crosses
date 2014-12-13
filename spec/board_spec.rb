@@ -1,4 +1,4 @@
-require './lib/board'
+require './models/board'
 
 describe Board do
 

@@ -3,7 +3,7 @@ Given(/^I am on the homepage$/) do
 end
 
 When(/^I click on "(.*?)"$/) do |link|
-  click_link link
+  click_on link
 end
 
 Then(/^I go to play_computer page$/) do

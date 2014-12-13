@@ -1,5 +1,5 @@
 require 'sinatra/base'
-# require 'json'
+require 'json'
 require './runner'
 
 class Noughts_and_Crosses < Sinatra::Base
@@ -18,7 +18,7 @@ class Noughts_and_Crosses < Sinatra::Base
     game.add_player(session[:user])
     computer = Player.new
     game.add_player(computer)
-    @board = game.board
+    # @board = game.board
     erb :play_computer
   end
 
@@ -26,10 +26,20 @@ class Noughts_and_Crosses < Sinatra::Base
     "Waiting for oponents to join the game!!!"
   end
 
-  post '/result' do
+  post '/computer/result' do
     cell = params[:choice]
     player = game.player1
     game.take_a_turn(player, cell.to_i)
+     puts game.board.grid
+  end
+
+  get '/computer/result/:cell_number' do
+    content_type :json
+    cell = params[:cell_number]
+    puts cell
+    choice = game.board.grid["2"].content.name
+    puts choice
+    return choice.to_json
   end
 
   # start the server if ruby file executed directly

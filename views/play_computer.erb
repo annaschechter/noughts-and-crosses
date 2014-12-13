@@ -1,57 +1,22 @@
-<h2>Welcome, lets play noughts and crosses!!!</h2>
+<h2>Welcome, lets play!!!</h2>
 <input id="choice" type="text" name="Make your choice" placeholder="Make your choice">
 <input id="submit" type="submit" name="Submit">
 <table id="board" border="2px">
+
   <tr>
-    <% if @board.grid[1].content == nil %>
-      <td>1</td>
-    <% else %>
-      <td><%= @board.grid[1].content.name %></td>
-    <% end %>
-    <% if @board.grid[2].content == nil %>
-      <td>2</td>
-    <% else %>
-      <td><%= @board.grid[2].content.name %></td>
-    <% end %>
-    <% if @board.grid[3].content == nil %>
-      <td>3</td>
-    <% else %>
-      <td><%= @board.grid[3].content.name %></td>
-    <% end %>
+    <td id="1">1</td>
+    <td>2</td>
+    <td>3</td>
   </tr>
   <tr>
-    <% if @board.grid[4].content == nil %>
-      <td>4</td>
-    <% else %>
-      <td><%= @board.grid[4].content.name %></td>
-    <% end %>
-    <% if @board.grid[5].content == nil %>
-      <td>5</td>
-    <% else %>
-      <td><%= @board.grid[5].content.name %></td>
-    <% end %>
-    <% if @board.grid[6].content == nil %>
-      <td>6</td>
-    <% else %>
-      <td><%= @board.grid[6].content.name %></td>
-    <% end %>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
   </tr>
   <tr>
-    <% if @board.grid[7].content == nil %>
-      <td>7</td>
-    <% else %>
-      <td><%= @board.grid[7].content.name %></td>
-    <% end %>
-    <% if @board.grid[8].content == nil %>
-      <td>8</td>
-    <% else %>
-      <td><%= @board.grid[8].content.name %></td>
-    <% end %>
-    <% if @board.grid[9].content == nil %>
-      <td>9</td>
-    <% else %>
-      <td><%= @board.grid[9].content.name %></td>
-    <% end %>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
   </tr>
 
 </table>
