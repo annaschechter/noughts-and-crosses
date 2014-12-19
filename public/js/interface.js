@@ -13,8 +13,9 @@ $(document).ready(function() {
     var choice = $('#choice').val();
     $.post('/computer/result', {choice: choice}).done(function() {
       console.log("done")
-      $.getJSON('/computer/result/'+ choice, function(data) {
-        $('#1').text(data);
+      $.get('/computer/result/'+ choice, function(data) {
+        console.log('#'+choice);
+        $('#'+choice).text(data);
       }) 
      });
   });

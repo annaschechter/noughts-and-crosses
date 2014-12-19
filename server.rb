@@ -16,9 +16,8 @@ class Noughts_and_Crosses < Sinatra::Base
   get '/play_computer' do
     session[:user] = Player.new
     game.add_player(session[:user])
-    computer = Player.new
+    computer = Computer.new(game.board)
     game.add_player(computer)
-    # @board = game.board
     erb :play_computer
   end
 
@@ -30,14 +29,15 @@ class Noughts_and_Crosses < Sinatra::Base
     cell = params[:choice]
     player = game.player1
     game.take_a_turn(player, cell.to_i)
-     puts game.board.grid
+    puts game.board.grid
   end
 
   get '/computer/result/:cell_number' do
+    # puts game.board.grid
     content_type :json
-    cell = params[:cell_number]
-    puts cell
-    choice = game.board.grid["2"].content.name
+    cell_number = params[:cell_number].to_i
+    # puts cell
+    choice = game.board.grid[cell_number].content.name
     puts choice
     return choice.to_json
   end

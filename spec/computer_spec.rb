@@ -17,5 +17,10 @@ describe Computer do
     expect(computer.winner?).to be true
   end
 
+  it 'can make choices' do
+    computer.make_a_choice
+    expect(board.grid).to include "nought"
+  end
+
   
 end

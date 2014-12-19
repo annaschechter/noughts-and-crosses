@@ -1,3 +1,4 @@
+require_relative './board.rb'
 class Computer
 
   attr_reader :board
@@ -11,8 +12,21 @@ class Computer
     return @winner
   end
 
-  def win!
+  def win!  
     @winner = true
   end
+
+  def make_a_choice
+    i = false
+    until i == true do 
+      num = rand(1..10).floor
+      if @board.find_cell(num) != nil
+        return i = false
+      else 
+        @board.add_choice(num, Choice.new("nought"))
+        i = true
+      end
+    end
+end
 
 end
