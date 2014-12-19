@@ -40,7 +40,11 @@ class Noughts_and_Crosses < Sinatra::Base
     board = []
     hash = game.board.grid
     hash.each {|key, value| 
-      board << value.content.name if value.content != nil
+      if value.content != nil
+        board << value.content.name
+      else
+        board << nil
+      end
     }
     return board.to_json
   end
