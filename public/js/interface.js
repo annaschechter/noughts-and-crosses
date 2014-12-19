@@ -10,13 +10,20 @@ $(document).ready(function() {
 
 
   $('#submit').on('click', function() {
-    var choice = $('#choice').val();
-    $.post('/computer/result', {choice: choice}).done(function() {
-      console.log("done")
-      $.get('/computer/result/'+ choice, function(data) {
-        console.log('#'+choice);
-        $('#'+choice).text(data);
-      }) 
-     });
+    record_players_choice();
   });
+
+  var record_players_choice = function() {
+    var choice = $('#choice').val();
+    $.post('/computer/player_result', {choice: choice}).done(function() {
+      $.get('/computer/board', function(data) {
+        console.log(data[2])
+        for(var i = 0; i < 9; i++){
+          if (data[i] !== null) {
+            $('#'+(i+1)).text(data[i]);
+          };
+        };
+      });
+    });
+  }
 })

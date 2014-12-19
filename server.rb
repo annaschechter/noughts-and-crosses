@@ -25,21 +25,24 @@ class Noughts_and_Crosses < Sinatra::Base
     "Waiting for oponents to join the game!!!"
   end
 
-  post '/computer/result' do
+  post '/computer/player_result' do
     cell = params[:choice]
     player = game.player1
     game.take_a_turn(player, cell.to_i)
-    puts game.board.grid
   end
 
-  get '/computer/result/:cell_number' do
-    # puts game.board.grid
+  post '/computer/computer_result' do
+    game.player2.make_a_choice()
+  end
+
+  get '/computer/board' do
     content_type :json
-    cell_number = params[:cell_number].to_i
-    # puts cell
-    choice = game.board.grid[cell_number].content.name
-    puts choice
-    return choice.to_json
+    board = []
+    hash = game.board.grid
+    hash.each {|key, value| 
+      board << value.content.name if value.content != nil
+    }
+    return board.to_json
   end
 
   # start the server if ruby file executed directly
