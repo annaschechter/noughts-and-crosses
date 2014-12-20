@@ -29,11 +29,11 @@ class Noughts_and_Crosses < Sinatra::Base
     cell = params[:choice]
     player = game.player1
     game.take_a_turn(player, cell.to_i)
+
   end
 
   post '/computer/computer_result' do
     game.player2.make_a_choice
-    puts game.board.grid
   end
 
   get '/computer/board' do
@@ -47,6 +47,13 @@ class Noughts_and_Crosses < Sinatra::Base
         board << nil
       end
     }
+    if game.winner?
+      board << "winner"
+    elsif game.draw?
+      board << "draw"
+    else 
+      board << nil
+    end
     return board.to_json
   end
 
