@@ -19,9 +19,9 @@ class Computer
   def make_a_choice
     i = false
     until i == true do 
-      num = rand(1..10).floor
+      num = rand(1...10).floor
       if @board.find_cell(num) != nil
-        return i = false
+        i = false
       else 
         @board.add_choice(num, Choice.new("nought"))
         i = true

@@ -32,7 +32,8 @@ class Noughts_and_Crosses < Sinatra::Base
   end
 
   post '/computer/computer_result' do
-    game.player2.make_a_choice()
+    game.player2.make_a_choice
+    puts game.board.grid
   end
 
   get '/computer/board' do
