@@ -10,7 +10,7 @@ $(document).ready(function() {
           };
         };
         if (data[9] === null) {
-          $('h4').text("")
+          $('h4').text("Hold on, computer is thinking...")
         } else if (data[9] === "winner") {
             $('#winner').text("You won!")
         } else if (data[9] === "draw") {
@@ -35,7 +35,7 @@ $(document).ready(function() {
           };
         };
         if (data[9] === null) {
-          $('h4').text("")
+          $('h4').text("It's your turn. Choose wisely :)")
         } else if (data[9] === "winner") {
             $('#winner').text("Computer won!")
         } else if (data[9] === "draw") {
