@@ -1,5 +1,21 @@
 $(document).ready(function() {
 
+  var updateTheBoard = function() {
+    $.get('/computer/board', function(data) {
+      for(var i = 0; i < 9; i++){
+        if (data[i] !== null) {
+          $('#'+(i+1)).text(data[i]);
+        };
+      };
+    }).done(function() {
+        for(var i = 1; i < 10; i++) {
+          if($("#"+i).text() !== i.toString()) {
+            $("#option"+i).hide();
+          };
+        };
+      });
+  }
+
   var recordPlayersChoice = function() {
     var choice = $('#choice').val();
     $.post('/computer/player_result', {choice: choice}).done(function() {
@@ -50,6 +66,8 @@ $(document).ready(function() {
       });
     });
   };
+
+  updateTheBoard();
 
   $('#play-against-computer-link').on('click', function() {
     window.location = ('/play_computer')
