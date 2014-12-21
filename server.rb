@@ -10,6 +10,7 @@ class Noughts_and_Crosses < Sinatra::Base
 
   get '/' do
     session.clear
+    game.reset
     erb :index
   end
 

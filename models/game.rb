@@ -41,4 +41,13 @@ class Game
 		end
 		return true
 	end
+
+	def reset
+		@player1 = nil
+		@player2 = nil
+		@board = Board.new
+	end
+	
 end
+
+

@@ -99,4 +99,14 @@ describe Game do
 		make_a_draw(game)
 		expect(game.winner?).to eq false
 	end
+
+	it 'can be reset' do
+		get_game_ready(game)
+		game.take_a_turn(player1, 1)
+		game.reset
+		expect(game.player1).to eq nil
+		expect(game.player2).to eq nil
+		expect(game.board.grid[1].content).to eq nil
+	end
+
 end
