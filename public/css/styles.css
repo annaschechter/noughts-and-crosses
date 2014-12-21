@@ -1,0 +1,43 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+#logo {
+  display: block;
+  font-size: 300%;
+  text-align: center;
+  padding-top: 5%;
+}
+
+a {
+  display: inline-block;
+  width: 20%;
+  text-decoration: none;
+  background-color: white;
+  color: black;
+  border: solid white 2px;
+  font-size: 150%;
+  padding: 1%;
+  margin: 13.5%;
+}
+
+#welcome-message {
+  display: block;
+  font-size: 200%;
+  text-align: left;
+  padding: 5%;
+}
+
+#board {
+  border: solid white 3px;
+}
+
+td {
+  height: 50px;
+  width: 50px;
+  border: solid white 3px;
+  font-size: 150%;
+  text-align: center;
+  text-vertical-align: middle;
+}
