@@ -28,6 +28,7 @@ $(document).ready(function() {
         if (data[9] === null) {
           $('h4').text("Hold on, computer is thinking...")
         } else if (data[9] === "winner") {
+            $('#dialog').dialog();
             $('#winner').text("You won!")
         } else if (data[9] === "draw") {
             $('#winner').text("It's a draw!"); 
